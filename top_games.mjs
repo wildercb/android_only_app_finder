@@ -32,7 +32,7 @@ async function retryOperation(operation, retries = config.maxRetries, initialDel
   throw lastError;
 }
 
-async function scrapeTopGamesChunk(collection, startRank, endRank, progress) {
+async function scrapeTopGamesChunk(collection, startRank, endRank, progress, country='us') {
   const start = startRank - 1;  // gplay.list uses 0-based index
   const num = Math.min(config.chunkSize, endRank - startRank + 1);
 
@@ -51,6 +51,7 @@ async function scrapeTopGamesChunk(collection, startRank, endRank, progress) {
           start: start,
           num: num,
           fullDetail: true,
+          country: country,
         }).then(resolve).catch(reject).finally(() => clearTimeout(timeout));
       })
     );
@@ -85,7 +86,7 @@ async function scrapeTopGamesChunk(collection, startRank, endRank, progress) {
 
 async function scrapeTopGames(startRank, endRank) {
   const collections = [
-    { name: 'TOP_FREE_GAMES', value: gplay.collection.TOP_FREE },
+    //{ name: 'TOP_FREE_GAMES', value: gplay.collection.TOP_FREE },
     { name: 'TOP_PAID_GAMES', value: gplay.collection.TOP_PAID }
   ];
 

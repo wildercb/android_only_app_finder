@@ -1,6 +1,9 @@
 {
     "type": "module",
     "dependencies": {
-        "https-proxy-agent": "^7.0.5"
+        "app-store-scraper": "^0.18.0",
+        "csv-parser": "^3.0.0",
+        "https-proxy-agent": "^7.0.5",
+        "json2csv": "^6.0.0-alpha.2"
     }
 }

@@ -1,3 +1,5 @@
+// Not currently functional 
+
 import gplay from 'google-play-scraper';
 import { writeFile, readFile } from 'fs/promises';
 import { existsSync } from 'fs';
